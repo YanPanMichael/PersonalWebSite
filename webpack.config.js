@@ -3,6 +3,11 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({ template: 'index.html' });
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractTextPlugin = new ExtractTextPlugin('style.css', { allChunks: true });
+
 const definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.NODE_ENV === 'development' || 'true'))
 });
@@ -13,6 +18,7 @@ const stylesheetsLoaders = [
     options: {
       modules: true,
       localIdentName: '[path]-[local]-[hash:base64:3]',
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!stylus-loader'), //eslint-disable-line
       sourceMap: true
     }
   }
@@ -25,7 +31,7 @@ module.exports = {
     filename: '[hash].js',
   },
   devtool: 'source-map',
-  plugins: [htmlWebpackPlugin, definePlugin],
+  plugins: [htmlWebpackPlugin, definePlugin, extractTextPlugin],
   resolve: {
     modules: ['node_modules', path.join(__dirname, 'src')]
   },
