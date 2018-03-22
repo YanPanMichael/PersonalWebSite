@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import styles from './header.css';
 
-class Header extends Component {
+export default class Header extends Component {
   render() {
     const gitHubButton = '<a class="github-button" href="https://github.com/olegakbarov/react-cssmodules-demo" data-icon="octicon-star" data-style="mega" data-count-href="/olegakbarov/react-cssmodules-demo/stargazers" data-count-api="/repos/olegakbarov/react-cssmodules-demo#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star olegakbarov/react-cssmodules-demo on GitHub"></a>'  //eslint-disable-line
     const followButton = '<a class="github-button" href="https://github.com/olegakbarov" data-style="mega" data-count-href="/olegakbarov/followers" data-count-api="/users/olegakbarov#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @olegakbarov on GitHub"></a>' //eslint-disable-line
@@ -39,5 +38,3 @@ class Header extends Component {
     );
   }
 }
-
-export default CSSModules(Header, styles);
