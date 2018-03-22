@@ -4,7 +4,7 @@ import { loadApp } from 'actions/app';
 import styles from './app.css';
 
 import Header from '../components/Header/Header';
-import Wrapper from './components/Wrapper/Wrapper';
+// import Wrapper from '../components/Wrapper/Wrapper';
 
 type Props = {
   dispatch: () => void,
@@ -26,7 +26,7 @@ export class AppContainer extends Component {
     return (
       <div className={styles.container}>
         <Header />
-        <Wrapper />
+        {/* <Wrapper /> */}
       </div>
     );
   }
