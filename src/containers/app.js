@@ -27,6 +27,30 @@ export class AppContainer extends Component {
     return (
       <div className={styles.container}>
         <Header />
+        <Scrollbars
+          onScroll={this.handleScroll}
+          onScrollFrame={this.handleScrollFrame}
+          onScrollStart={this.handleScrollStart}
+          onScrollStop={this.handleScrollStop}
+          onUpdate={this.handleUpdate}
+          renderView={this.renderView}
+          renderTrackHorizontal={this.renderTrackHorizontal}
+          renderTrackVertical={this.renderTrackVertical}
+          renderThumbHorizontal={this.renderThumbHorizontal}
+          renderThumbVertical={this.renderThumbVertical}
+          autoHide
+          autoHideTimeout={1000}
+          autoHideDuration={200}
+          autoHeight
+          autoHeightMin={0}
+          autoHeightMax={200}
+          thumbMinSize={30}
+          universal={true}
+          style={{ width: 500, height: 300 }}
+          {...this.props}>
+          <p>Some great content...</p>
+        </Scrollbars>
+
         {/* <Wrapper /> */}
       </div>
     );
