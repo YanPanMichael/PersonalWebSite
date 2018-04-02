@@ -23,7 +23,6 @@ export class AppContainer extends Component {
     if (!this.props.loaded) {
       return null;
     }
-
     return (
       <div className={styles.container}>
         <Header />
@@ -50,7 +49,6 @@ export class AppContainer extends Component {
           {...this.props}>
           <p>Some great content...</p>
         </Scrollbars>
-
         {/* <Wrapper /> */}
       </div>
     );
